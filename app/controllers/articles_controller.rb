@@ -8,6 +8,9 @@ class ArticlesController < ApplicationController
   def show
     # Find specific Article
     @article = Article.find(params[:id])
+    # Initializing comment
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
   def new
     # Setting variable for sharing with the 'New' view
