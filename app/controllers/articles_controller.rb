@@ -18,6 +18,9 @@ class ArticlesController < ApplicationController
     # Create new Article
     @article = Article.new(article_params)
     @article.save
+
+    # Send success message
+    flash.notice = "Article '#{@article.title}' Created!"
     
     # Redirect to see article
     redirect_to article_path(@article)
@@ -25,6 +28,9 @@ class ArticlesController < ApplicationController
   def destroy
     # Delete the entry to the blog
     @article = Article.destroy(params[:id])
+
+    # Send success message
+    flash.notice = "Article '#{@article.title}' Deleted!"
 
     redirect_to action: "index"
   end
@@ -37,6 +43,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # Update article's values
     @article.update(article_params)
+
+    # Send success message
+    flash.notice = "Article '#{@article.title}' Updated!"
 
     redirect_to article_path(@article)
   end
