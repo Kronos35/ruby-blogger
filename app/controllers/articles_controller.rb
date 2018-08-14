@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     # Get all articles
     @articles = Article.all
   end
+
   def show
     # Find specific Article
     @article = Article.find(params[:id])
@@ -13,12 +14,13 @@ class ArticlesController < ApplicationController
     @comment = Comment.new
     @comment.article_id = @article.id
   end
+
   def new
     # Setting variable for sharing with the 'New' view
     @article = Article.new
   end
+
   def create
-    
     # Create new Article
     @article = Article.new(article_params)
     @article.save
@@ -29,6 +31,7 @@ class ArticlesController < ApplicationController
     # Redirect to see article
     redirect_to article_path(@article)
   end
+
   def destroy
     # Delete the entry to the blog
     @article = Article.destroy(params[:id])
@@ -38,10 +41,12 @@ class ArticlesController < ApplicationController
 
     redirect_to action: "index"
   end
+
   def edit
     # Find specific Article
     @article = Article.find(params[:id])
   end
+
   def update
     # Find article
     @article = Article.find(params[:id])
