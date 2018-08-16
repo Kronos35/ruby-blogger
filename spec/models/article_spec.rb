@@ -25,7 +25,7 @@ RSpec.describe Article, type: :model do
       article = Article.create!
       comment1 = article.comments.create!(:body => "first comment")
       comment2 = article.comments.create!(:body => "second comment")
-      expect(article.reload.comments).to eq([comment1, comment2])
+      expect(article.reload.comments).to eq([comment2, comment1])
     end
   end
 

@@ -69,3 +69,9 @@ gem 'paperclip'
 
 # Authentication 
 gem 'sorcery'
+
+# Controller testing
+gem 'rails-controller-testing'
+
+# Fabrication
+gem 'fabrication'
